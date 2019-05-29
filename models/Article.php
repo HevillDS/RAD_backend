@@ -89,11 +89,8 @@ class Article extends \yii\db\ActiveRecord
     public function saveArticleCategory($article_category) 
     {
         $category = ArticleCategory::findOne($article_category);
-        if($category != null)
-        {
-            $this->link('category', $category);
-            return true;            
-        }
+        $this->article_category = $article_category;
+        $this->save(false);
     }
 
 
