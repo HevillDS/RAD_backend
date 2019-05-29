@@ -1,0 +1,22 @@
+<?php
+
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $model app\models\ArticleCategory */
+
+$this->title = 'Обновить категорию: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Обновить';
+?>
+<?= Html::a('Назад', ['/admin/article'], ['class' => 'btn btn-secondary']) ?>
+<div class="article-category-update">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
+
+</div>
