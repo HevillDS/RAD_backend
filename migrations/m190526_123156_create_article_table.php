@@ -18,10 +18,10 @@ class m190526_123156_create_article_table extends Migration
     {
         $this->createTable('{{%article}}', [
             'id' => $this->primaryKey(),
-            'title' => $this->string(),
-            'description' => $this->string(),
-            'content' => $this->string(),
-            'image' => $this->string(),
+            'title' => $this->string() . ' NOT NULL',
+            'description' => $this->text(4000) . ' NOT NULL',
+            'content' => $this->text(4000) . ' NOT NULL',
+            'image' => $this->string() . ' NOT NULL',
             'user_id' => $this->integer(),
             'date' => $this->date(),
             'article_category' => $this->integer(),

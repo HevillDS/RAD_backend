@@ -36,8 +36,8 @@ AppAsset::register($this);
       <?php
         echo Menu::widget([
           'items' => [
-            ['label' => 'Авиатор', 'url' => ['/site/index'], 'options'=>['class'=>'menu__links-item']],
-            ['label' => 'Публикации', 'url' => ['/site/publications'], 'options'=>['class'=>'menu__links-item']],
+            ['label' => 'RollAllDay', 'url' => ['/site/index'], 'options'=>['class'=>'menu__links-item']],
+            ['label' => 'Публикации', 'url' => ['/site/articles'], 'options'=>['class'=>'menu__links-item']],
             ['label' => 'Регистрация', 'url' => ['/site/registry'], 'options'=>['class'=>'menu__links-item'], 'visible'=>Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ?
                 ['label' => 'Вход', 'url' => ['/site/login'], 'options'=>['class'=>'menu__links-item']] :

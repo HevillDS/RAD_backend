@@ -14,9 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true])->label('Статья') ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 2])->label('Отрывок') ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => 2])->label('Отрывок') ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6])->label('Полная статья') ?>
+    <?= $form->field($model, 'content')->textarea(['rows' => 6])->label('Полная статья') ?>
 
     <?= $form->field($model, 'date')->textInput()->label('Дата') ?>
 

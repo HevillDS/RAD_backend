@@ -13,11 +13,11 @@ class Login extends Model
 
     public function rules()
     {
-        return [
-            [['email', 'password'],'required'],
-            ['email', 'email'],
-            ['password', 'validatePassword'] //функция для валидации пароля
-        ];
+            return [
+                [['email', 'password'], 'required', 'message'=>'Не заполнено поле'],
+                ['email','email', 'message'=>'Некорректный email'],
+                ['password', 'validatePassword', 'message'=>'Некорректный пароль']
+            ];
     }
 
     public function validatePassword($attribute,$params) {
