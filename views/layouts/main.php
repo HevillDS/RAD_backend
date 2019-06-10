@@ -14,11 +14,6 @@ AppAsset::register($this);
   <meta charset="<?= Yii::$app->charset ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Minified CSS
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-
-<!-- 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
   <?php $this->registerCsrfMetaTags() ?>
   <title><?= Html::encode($this->title) ?></title>
   <?php $this->head() ?>
@@ -39,6 +34,8 @@ AppAsset::register($this);
             ['label' => 'RollAllDay', 'url' => ['/site/index'], 'options'=>['class'=>'menu__links-item']],
             ['label' => 'Публикации', 'url' => ['/site/articles'], 'options'=>['class'=>'menu__links-item']],
             ['label' => 'Регистрация', 'url' => ['/site/registry'], 'options'=>['class'=>'menu__links-item'], 'visible'=>Yii::$app->user->isGuest],
+            ['label' => 'Админка', 'url' => ['/admin'], 'options'=>['class'=>'menu__links-item'], 'visible'=>!Yii::$app->user->isGuest&&Yii::$app->user->identity->isAdmin],
+            
             Yii::$app->user->isGuest ?
                 ['label' => 'Вход', 'url' => ['/site/login'], 'options'=>['class'=>'menu__links-item']] :
                 [
@@ -47,7 +44,9 @@ AppAsset::register($this);
                     'linkOptions' => ['data-method' => 'post'],
                     'options'=>['class'=>'menu__links-item']
                 ],
-            ],
+              ],
+
+            
             'options' => [
               'class' => 'menu__links',
               'data'=>'menu',
@@ -56,24 +55,15 @@ AppAsset::register($this);
       ?>
     </nav>
   </header>
-
-  <?= $content ?> 
-
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
-
-    <footer>
-      <section>
-        <a class="animated" href="#" target="_blank" ><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/youtube.png" alt="YTlogo" ></a>
-        <a class="animated" href="#" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/telegram.png" alt="TELEGRAMlogo"></a>
-        <a class="animated" href="#" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/instagram.png" alt="INSTAGRAMlogo"></a>
-        <a class="animated" href="https://vk.com/aviator_open" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/vk.png" alt="VKlogo"></a>
-      </section>
-    </footer>
-
-
+    <?= $content ?> 
+  <footer>
+    <section>
+      <a class="animated" href="#" target="_blank" ><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/youtube.png" alt="YTlogo" ></a>
+      <a class="animated" href="#" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/telegram.png" alt="TELEGRAMlogo"></a>
+      <a class="animated" href="#" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/instagram.png" alt="INSTAGRAMlogo"></a>
+      <a class="animated" href="https://vk.com/aviator_open" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/vk.png" alt="VKlogo"></a>
+    </section>
+  </footer>
   <?php $this->endBody() ?>
 </body>
 </html>
