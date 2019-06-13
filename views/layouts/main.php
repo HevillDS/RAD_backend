@@ -33,20 +33,17 @@ AppAsset::register($this);
           'items' => [
             ['label' => 'RollAllDay', 'url' => ['/site/index'], 'options'=>['class'=>'menu__links-item']],
             ['label' => 'Публикации', 'url' => ['/site/articles'], 'options'=>['class'=>'menu__links-item']],
-            ['label' => 'Регистрация', 'url' => ['/site/registry'], 'options'=>['class'=>'menu__links-item'], 'visible'=>Yii::$app->user->isGuest],
+            ['label' => 'Регистрация', 'url' => ['/auth/registry'], 'options'=>['class'=>'menu__links-item'], 'visible'=>Yii::$app->user->isGuest],
             ['label' => 'Админка', 'url' => ['/admin'], 'options'=>['class'=>'menu__links-item'], 'visible'=>!Yii::$app->user->isGuest&&Yii::$app->user->identity->isAdmin],
-            
             Yii::$app->user->isGuest ?
-                ['label' => 'Вход', 'url' => ['/site/login'], 'options'=>['class'=>'menu__links-item']] :
+                ['label' => 'Вход', 'url' => ['/auth/login'], 'options'=>['class'=>'menu__links-item']] :
                 [
                     'label' => 'Выход (' . Yii::$app->user->identity->name . ')',
-                    'url' => ['/site/logout'],
+                    'url' => ['/auth/logout'],
                     'linkOptions' => ['data-method' => 'post'],
                     'options'=>['class'=>'menu__links-item']
                 ],
               ],
-
-            
             'options' => [
               'class' => 'menu__links',
               'data'=>'menu',
@@ -57,12 +54,12 @@ AppAsset::register($this);
   </header>
     <?= $content ?> 
   <footer>
-    <section>
+    <div>
       <a class="animated" href="#" target="_blank" ><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/youtube.png" alt="YTlogo" ></a>
       <a class="animated" href="#" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/telegram.png" alt="TELEGRAMlogo"></a>
       <a class="animated" href="#" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/instagram.png" alt="INSTAGRAMlogo"></a>
       <a class="animated" href="https://vk.com/aviator_open" target="_blank"><img src="<?php echo Yii::$app->request->baseUrl;?>/img/logo/vk.png" alt="VKlogo"></a>
-    </section>
+    </div>
   </footer>
   <?php $this->endBody() ?>
 </body>

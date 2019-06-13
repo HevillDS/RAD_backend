@@ -18,7 +18,6 @@ use yii\helpers\Html;
 			<p>
 				<?= Html::a('Статьи', ['/admin/article'], ['class' => 'btn btn-success btn-lg']) ?> 
 				<?= Html::a('Категории', ['/admin/article-category'], ['class' => 'btn btn-success btn-lg']) ?>
-				<?= Html::a('Комментарии', ['/admin/article-comment'], ['class' => 'btn btn-success btn-lg']) ?>
 			</p>
 		</div>
 		<div>

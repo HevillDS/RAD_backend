@@ -1,9 +1,5 @@
 <?php
 
-  /* @var $this yii\web\View */
-  /* @var $form yii\bootstrap\ActiveForm */
-  /* @var $model app\models\LoginForm */
-
   use yii\helpers\Html;
   use yii\helpers\Url;
   use yii\widgets\LinkPager;
@@ -13,26 +9,24 @@
 ?>
 
 <main class="article__main">
-    <article class="article">
-        <h1><?= $article->title; ?></h1>
-        <img src="<?= $article->getImage()  ?>" alt="">
-        <p>
-            <?= $article->content; ?>
-        </p>
-        <p class="date">
-          <?= $article->date ?>
-        </p>
-    </article>
-    <article class="commentary">
-        <h2>Комментарии</h2>
-        <section class="writeComment">
-            <textarea name="" id="" placeholder="Оставьте комментарий"></textarea><br>
-            <button><a href="">Отправить</a></button>
-        </section>
-        <section class="comments">
-            <h3>Дмитрий</h3>
-            <p>Классная статья, спасибо!</p>
-            <hr>
-        </section>
-    </article>
-  </main>
+  <article class="article">
+      <h1><?= $article->title; ?></h1>
+      <img src="<?= $article->getImage()  ?>" alt="">
+      <p>
+        <?= $article->content; ?>
+      </p>
+      <p class="date">
+        <?= $article->date ?>
+      </p>
+  </article>
+
+  <!-- VK Comments -->
+  <script src="https://vk.com/js/api/openapi.js?160"></script>
+  <script>
+    VK.init({apiId: 7017969, onlyWidgets: true});
+  </script>
+  <div id="vk_comments"></div>
+  <script>
+    VK.Widgets.Comments("vk_comments", {limit: 10, width: "350", attach: "*"});
+  </script>
+</main>

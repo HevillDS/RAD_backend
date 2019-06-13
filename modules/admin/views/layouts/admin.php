@@ -35,7 +35,6 @@ AppAsset::register($this);
       'items' => [
         ['label' => 'Статьи', 'url' => ['/admin/article/index']],
         ['label' => 'Категории', 'url' => ['/admin/article-category/index']],
-        ['label' => 'Комментарии', 'url' => ['/admin/article-comment/index']],
       ],
     ]);
     NavBar::end();

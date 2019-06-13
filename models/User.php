@@ -85,6 +85,27 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->password = Yii::$app->getSecurity()->generatePasswordHash($password);
     }
 
+    public function create()
+    {
+        return $this->save(false);
+    }
+
+    public function saveFromVk($uid, $name, $photo)
+    {
+        $user = User::findOne($uid);
+        if($user)
+        {
+            return Yii::$app->user->login($user);
+        }
+        
+        $this->id = $uid;
+        $this->name = $name;
+        $this->photo = $photo;
+        $this->create();
+        
+        return Yii::$app->user->login($this);
+    }
+
     //=============================================
     public static function findIdentity($id)
     {

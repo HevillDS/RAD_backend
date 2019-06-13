@@ -1,8 +1,6 @@
 <?php 
 namespace app\models;
 
-
-
 use Yii;
 use yii\base\Model;
 
@@ -21,11 +19,15 @@ class Registry extends Model
         ];
     }
 
-    public function registry() {
-        $user = new User();
-        $user->name = $this->name;
-        $user->email = $this->email;
-        $user->generatePass($this->password);
-        return  $user->save();
+    public function registry()
+    {
+        if($this->validate())
+        {
+            $user = new User();
+            $user->name = $this->name;
+            $user->email = $this->email;
+            $user->generatePass($this->password);
+            return $user->create();
+        }
     }
 }
